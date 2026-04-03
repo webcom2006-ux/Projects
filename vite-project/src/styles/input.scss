@@ -1,0 +1,17 @@
+@use 'variables' as var;
+
+input {
+  width: 100%;
+  padding: 10px 10px 10px 36px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: url('/src/assets/magnifying-glass-solid.png') no-repeat 10px center;
+  background-size: 16px 16px;
+  background-color: #eee;
+
+  &:focus {
+    outline: none;
+    border-color: var.$primary;
+  }
+}

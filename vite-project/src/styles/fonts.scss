@@ -1,0 +1,23 @@
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom-font.woff2') format('woff2'),
+       url('/fonts/custom-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom-font-bold.woff2') format('woff2'),
+       url('/fonts/custom-font-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Apply custom font to body
+body {
+  font-family: 'CustomFont', Arial, sans-serif;
+}

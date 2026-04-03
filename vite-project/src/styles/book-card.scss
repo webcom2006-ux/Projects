@@ -1,0 +1,49 @@
+@use 'variables' as var;
+
+
+.card {
+  position: relative;
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+  font-weight: 700;
+}
+
+.book-genre {
+  .card {
+    position: relative;
+    background: white;
+    padding: 13px 13px 13px 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .card::before,
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateY(-50%);
+  }
+
+  .card::before {
+    left: 8px;
+    background-image: url('/src/assets/book-solid.png');
+    transform: translateY(-50%) scaleX(-1);
+  }
+
+  .card::after {
+    right: 8px;
+    background-image: url('/src/assets/angle-right-solid.png');
+  }
+}
