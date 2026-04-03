@@ -4,6 +4,7 @@ export function SearchInput({ onSearch }) {
   const [value, setValue] = useState('');
 
   useEffect(() => {
+    console.log('SearchInput: calling onSearch with', value);
     const timeout = setTimeout(() => {
       onSearch(value);
     }, 500);

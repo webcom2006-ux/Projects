@@ -17,7 +17,8 @@ export function BooksPage() {
     if (loading) return;
     setLoading(true);
     try {
-      const data = await fetchBooks({ topic, search: searchText, pageUrl: reset ? '' : nextPage });
+      const data = await fetchBooks({ topic, pageUrl: reset ? '' : nextPage });
+      console.log('Fetched books:', data.results.length, 'for topic:', topic);
       setNextPage(data.next || '');
       setBooks((prev) => (reset ? data.results : [...prev, ...data.results]));
     } finally {
@@ -28,7 +29,7 @@ export function BooksPage() {
   useEffect(() => {
     loadBooks(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topic, searchText]);
+  }, [topic]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -48,7 +49,13 @@ export function BooksPage() {
       <SearchInput onSearch={(value) => setSearchText(value)} />
       <div className="grid">
         {books
-          .filter((b) => b.formats['image/jpeg'])
+          .filter((b) => {
+            const hasImage = b.formats['image/jpeg'];
+            const matchesSearch = searchText === '' ||
+              b.title.toLowerCase().includes(searchText.toLowerCase()) ||
+              b.authors.some(a => a.name.toLowerCase().includes(searchText.toLowerCase()));
+            return hasImage && matchesSearch;
+          })
           .map((book) => <BookCard key={book.id || book.title} book={book} />)}
       </div>
       {loading && <div style={{ padding: '20px' }}>Loading...</div>}

@@ -1,9 +1,8 @@
-export async function fetchBooks({ topic = '', search = '', pageUrl = '' }) {
+export async function fetchBooks({ topic = '', pageUrl = '' }) {
   let url = pageUrl || `https://gutendex.com/books/?languages=en&page_size=7`;
 
-  if (!pageUrl) {
-    if (topic) url += `&topic=${topic}`;
-    if (search) url += `&search=${search}`;
+  if (!pageUrl && topic) {
+    url += `&topic=${topic}`;
   }
 
   const res = await fetch(url);
