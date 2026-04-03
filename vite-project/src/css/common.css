@@ -31,23 +31,23 @@ body .container {
 }
 body .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 11fr));
   gap: 16px;
 }
 @media (max-width: 900px) {
   body .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 @media (max-width: 600px) {
   body .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
 .book-genre.grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 11fr));
   gap: 50px;
 }
 .book-genre .card {
