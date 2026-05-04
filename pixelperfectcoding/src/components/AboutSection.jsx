@@ -1,6 +1,6 @@
 function AboutSection({ skills }) {
   return (
-    <section id="skills" className="container-shell py-20">
+    <section id="skills" className="container-shell py-10">
       <div className="glass-card p-8 md:p-10">
         <h2 className="section-heading">Skills</h2>
         <p className="mt-5 max-w-3xl text-slate-300">

@@ -1,10 +1,11 @@
-import Navbar from './components/Navbar'
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import { projects, services, skills, testimonials } from './data/portfolioData'
-import ContactPage from './pages/ContactPage'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
-import QuotationPage from './pages/QuotationPage'
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const QuotationPage = lazy(() => import('./pages/QuotationPage'))
 
 function App() {
   return (
@@ -18,22 +19,24 @@ function App() {
 
       <Navbar />
 
-      <main id="main-content">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage
-                services={services}
-                projects={projects}
-                skills={skills}
-                testimonials={testimonials}
-              />
-            }
-          />
-          <Route path="/quotation" element={<QuotationPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+      <main id="main-content" className='main-content'>
+        <Suspense fallback={<div className="container-shell py-32 text-center">Loading...</div>}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  services={services}
+                  projects={projects}
+                  skills={skills}
+                  testimonials={testimonials}
+                />
+              }
+            />
+            <Route path="/quotation" element={<QuotationPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>

@@ -23,22 +23,36 @@ function ContactSection() {
     setStatus({ type: 'loading', message: 'Sending your message...' })
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 700))
+      const response = await fetch('http://localhost:3001/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Failed to send email')
+      }
+
       setStatus({
         type: 'success',
         message: 'Thanks! Your message has been sent successfully.',
       })
       setFormData(initialForm)
-    } catch {
+    } catch (error) {
+      console.error('Send error:', error)
       setStatus({
         type: 'error',
-        message: 'Something went wrong. Please try again.',
+        message: error.message || 'Something went wrong. Please try again.',
       })
     }
   }
 
   return (
-    <section id="contact" className="container-shell pb-24">
+    <section id="contact" className="container-shell pb-24 main-content-othr">
       <div className="glass-card p-8 md:p-10">
         <h2 className="section-heading">Contact</h2>
         <form

@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import image1 from "../assets/image1.jpg";
+import image2 from "../assets/image2.jpg";
+import image3 from "../assets/image3.jpg";
 
 function HeroSection() {
   return (
@@ -22,7 +25,7 @@ function HeroSection() {
           >
             Building Fast, Scalable &amp; High-Performance Web Experiences
           </motion.h1>
-          <p className="mt-6 max-w-xl text-lg text-slate-300">
+          <p className="mt-6 max-w-xl text-xl text-slate-300">
             Frontend Architect with expertise in React.js, Next.js, Performance
             Engineering, and Scalable UI Architecture.
           </p>
@@ -49,11 +52,17 @@ function HeroSection() {
           className="relative mx-auto mt-2 hidden h-[320px] w-full max-w-[420px] sm:block lg:h-[360px] lg:max-w-[460px]"
           aria-hidden="true"
         >
-          <motion.div
+         <motion.div
             animate={{ y: [0, -16, 0], rotate: [0, 8, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute left-8 top-10 h-24 w-24 rounded-2xl border border-white/20 bg-gradient-to-br from-indigo-300/40 to-blue-500/10 shadow-glow lg:left-10 lg:h-28 lg:w-28"
-          />
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-8 top-10 h-24 w-24 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-indigo-300/40 to-blue-500/10 shadow-glow lg:left-10 lg:h-28 lg:w-28"
+          >
+            <img
+              src={image2}
+              alt="Card Image"
+              className="w-full h-full object-cover rounded-[inherit]"
+            />
+          </motion.div>
           <motion.div
             animate={{ y: [0, 20, 0], x: [0, 10, 0] }}
             transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
@@ -61,10 +70,22 @@ function HeroSection() {
           />
           <motion.div
             animate={{ y: [0, -14, 0], rotate: [0, -10, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            className="glass-card absolute bottom-8 left-8 h-32 w-40 border-white/20 bg-white/10 lg:bottom-10 lg:left-12 lg:h-36 lg:w-48"
-          />
-          <div className="glass-card absolute right-8 top-24 h-40 w-40 rounded-[2rem] border-white/20 bg-gradient-to-tr from-indigo-500/20 via-white/10 to-cyan-300/15 lg:right-12 lg:top-28 lg:h-48 lg:w-48" />
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="glass-card absolute bottom-8 left-8 h-32 w-40 overflow-hidden rounded-[2rem] border-white/20 bg-white/10 lg:bottom-10 lg:left-12 lg:h-36 lg:w-48"
+          >
+            <img
+              src={image3}
+              alt="Card Image"
+              className="w-full h-full object-cover"
+            />
+        </motion.div>
+          <div className="glass-card absolute right-8 top-24 h-40 w-40 rounded-[2rem] border-white/20 bg-gradient-to-tr from-indigo-500/20 via-white/10 to-cyan-300/15 lg:right-12 lg:top-28 lg:h-48 lg:w-48">
+            <img 
+              alt="Logo" 
+              src={image1}
+              className="w-full h-full object-cover rounded-[inherit]"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

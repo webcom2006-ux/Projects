@@ -11,7 +11,7 @@ function HomePage({ services, projects, skills, testimonials }) {
       <AboutSection skills={skills} />
       <ServicesSection services={services} />
       <PortfolioSection projects={projects} />
-      <TestimonialsSection testimonials={testimonials} />
+      {/* <TestimonialsSection testimonials={testimonials} /> */}
     </>
   )
 }

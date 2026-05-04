@@ -47,7 +47,7 @@ function QuotationSection({ services }) {
   }
 
   return (
-    <section id="quotation" className="container-shell pb-20">
+    <section id="quotation" className="container-shell pb-20 main-content-othr">
       <div className="glass-card p-8 md:p-10">
         <h2 className="section-heading">Quotation</h2>
         <p className="mt-4 max-w-3xl text-slate-300">
