@@ -28,6 +28,8 @@ function buildTransporter() {
 }
 
 export default async function handler(req, res) {
+  console.log('API HIT')
+
   // Allow only POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({
@@ -37,6 +39,8 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log('BODY:', req.body)
+
     const { name, email, message } = req.body || {}
 
     // Validation
@@ -67,16 +71,11 @@ export default async function handler(req, res) {
       message: 'Email sent!',
     })
   } catch (error) {
-    console.error('Email error:', error)
-
-    const msg =
-      error?.responseCode && error?.response
-        ? `${error.responseCode} ${error.response}`
-        : error?.message || 'Failed to send email'
+    console.error('FULL ERROR:', error)
 
     return res.status(500).json({
       success: false,
-      message: msg,
+      message: error?.message || 'Failed to send email',
     })
   }
 }
