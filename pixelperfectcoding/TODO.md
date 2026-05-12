@@ -1,40 +1,10 @@
-# Contact Form Email Fix - Final Setup
+# TODO
 
-✅ **Frontend & Backend code complete**
+- [ ] Fix backend HTTP 500 handling in `server/server.js`
+  - [x] Add try/catch around `transporter.sendMail`
+  - [x] Log nodemailer error details
+  - [x] Return JSON error with proper HTTP status
+  - [x] Make transporter config more robust for Gmail/SMTP host settings
+- [ ] Restart server and re-test contact form
 
-## Quick Start (2 mins)
-1. [x] **Install backend:**
-   ```
-   npm --prefix server install  (already done ✅)
-   ```
-
-2. **Setup .env:**
-   ```
-   cp server/.env.example server/.env
-   ```
-   Edit `server/.env` with your Gmail creds (see .env.example)
-
-3. **Start server:**
-   ```
-   cd server & npm run dev
-   ```
-   (Windows CMD: use & not &&)
-
-4. **Test:**
-   - Frontend: `npm run dev`
-   - Fill contact form → Submit → Check email!
-
-## Expected:
-```
-Email server running on http://localhost:3001
-```
-
-Form success: \"Thanks! Your message has been sent successfully.\"
-
-**Issue fixed! 🚀**
-
-## If issues:
-- Console/network tab errors?
-- Backend logs?
-Paste here for debug.
 
