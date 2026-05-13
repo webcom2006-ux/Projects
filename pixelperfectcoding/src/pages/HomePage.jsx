@@ -1,17 +1,16 @@
-import AboutSection from '../components/AboutSection'
+import TechStacksSection from '../components/TechStacksSection'
 import HeroSection from '../components/HeroSection'
 import PortfolioSection from '../components/PortfolioSection'
 import ServicesSection from '../components/ServicesSection'
-import TestimonialsSection from '../components/TestimonialsSection'
-
-function HomePage({ services, projects, skills, testimonials }) {
+function HomePage({ services, projects, stacks }) {
   return (
     <>
       <HeroSection />
-      <AboutSection skills={skills} />
+      <TechStacksSection stacks={stacks} />
       <ServicesSection services={services} />
       <PortfolioSection projects={projects} />
       {/* <TestimonialsSection testimonials={testimonials} /> */}
+
     </>
   )
 }

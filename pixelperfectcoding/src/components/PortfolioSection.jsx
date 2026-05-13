@@ -8,12 +8,8 @@ function PortfolioSection({ projects }) {
             key={project.name}
             className="glass-card p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/50"
           >
-            <p className="text-lg text-cyan-200">{project.tag}</p>
-            <h3 className="mt-2 text-2xl font-semibold">{project.name}</h3>
-            <p className="mt-4 text-lg text-slate-300">
-              High-impact frontend delivery focused on scalability,
-              maintainability, and measurable UX outcomes.
-            </p>
+            <h3 className="mt-2 text-2xl text-cyan-200 font-semibold">{project.name}</h3>
+            <p className="text-lg mt-3">{project.desc}</p>
           </article>
         ))}
       </div>

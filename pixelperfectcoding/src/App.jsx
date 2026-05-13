@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import { projects, services, skills, testimonials } from './data/portfolioData'
+import { projects, services, stacks, testimonials } from './data/portfolioData'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 const ContactPage = lazy(() => import('./pages/ContactPage'))
@@ -28,7 +28,7 @@ function App() {
                 <HomePage
                   services={services}
                   projects={projects}
-                  skills={skills}
+                  stacks={stacks}
                   testimonials={testimonials}
                 />
               }

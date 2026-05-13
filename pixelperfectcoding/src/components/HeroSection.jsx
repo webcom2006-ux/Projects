@@ -9,14 +9,6 @@ function HeroSection() {
     <section className="relative isolate bg-hero-radial pb-20 pt-16 md:pb-28 md:pt-24">
       <div className="container-shell grid items-center gap-10 lg:grid-cols-2">
         <div>
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-cyan-200"
-          >
-            Frontend Architect
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -26,8 +18,7 @@ function HeroSection() {
             Building Fast, Scalable &amp; High-Performance Web Experiences
           </motion.h1>
           <p className="mt-6 max-w-xl text-xl text-slate-300">
-            Frontend Architect with expertise in React.js, Next.js, Performance
-            Engineering, and Scalable UI Architecture.
+            Helping startups and enterprises build modern, responsive, and performance-driven frontend applications with a strong focus on page speed optimization, Core Web Vitals, and seamless user experiences.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a

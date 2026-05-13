@@ -1,5 +1,5 @@
 export const navLinks = [
-  { label: 'About', href: '#about' },
+  { label: 'Technology Stacks', href: '#stacks' },
   { label: 'Services', href: '#services' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Quotation', href: '#quotation' },
@@ -7,20 +7,25 @@ export const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export const skills = [
-  'React.js',
-  'Next.js',
-  'JavaScript',
-  'TypeScript',
-  'Performance Optimization',
-  'SEO',
-  'Core Web Vitals',
-  'Accessibility',
+export const stacks = [
+  { name: 'React.js', iconKey: 'react' },
+  { name: 'Next.js', iconKey: 'nextjs' },
+  { name: 'JavaScript', iconKey: 'javascript' },
+  { name: 'TypeScript', iconKey: 'typescript' },
+  { name: 'React Redux', iconKey: 'redux' },
+  { name: 'Tailwind CSS', iconKey: 'tailwind' },
+  { name: 'Node JS', iconKey: 'nodejs' },
+  { name: 'Github', iconKey: 'github' },
+  { name: 'HTML', iconKey: 'html' },
+  { name: 'CSS', iconKey: 'css' },
+  { name: 'Vite', iconKey: 'vite' },
+  { name: 'Webpack', iconKey: 'webpack' },
 ]
+
 
 export const services = [
   {
-    title: 'Web Development in React JS and Next JS',
+    title: 'Scalable Frontend Architecture',
     description: 'Build scalable, maintainable, and modern web applications.',
     basePrice: 2200,
   },
@@ -35,16 +40,16 @@ export const services = [
     basePrice: 1200,
   },
   {
-    title: 'Web Page Performance Optimization',
-    description: 'Optimize rendering, loading, and asset delivery.',
+    title: 'Performance-Driven UI Engineering',
+    description: 'Optimize rendering, loading, and application efficiency.',
     basePrice: 1300,
   },
 ]
 
 export const projects = [
-  { name: 'Global SaaS Dashboard', tag: 'Architecture + Performance' },
-  { name: 'E-commerce Frontend Platform', tag: 'Core Web Vitals' },
-  { name: 'Enterprise Design System', tag: 'Scalable UI' },
+  { name: 'Web Development', desc: 'Build modern, scalable, and responsive websites tailored for performance and business growth.' },
+  { name: 'Digital Marketing', desc: 'Drive online growth through targeted digital strategies and audience engagement.' },
+  { name: 'SEO Optimization', desc: 'Enhance website structure, speed, and content for improved organic traffic and discoverability.' },
 ]
 
 export const testimonials = [

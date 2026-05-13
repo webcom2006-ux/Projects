@@ -3,7 +3,7 @@ import logo from "../assets/logo-hr-light.png";
 
 
 const homeLinks = [
-  { label: 'Skills', href: '/#skills' },
+  { label: 'Technology Stacks', href: '/#stacks' },
   { label: 'Services', href: '/#services' },
   { label: 'Portfolio', href: '/#portfolio' },
  /*  { label: 'Testimonials', href: '/#testimonials' }, */
