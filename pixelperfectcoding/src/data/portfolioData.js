@@ -44,12 +44,21 @@ export const services = [
     description: 'Optimize rendering, loading, and application efficiency.',
     basePrice: 1300,
   },
+  { title: 'Frontend Hiring & Evaluation Partner', 
+    description: 'Helping companies identify skilled frontend engineers through practical technical assessments, architecture discussions, and real-world React/UI evaluations.From junior developers to frontend leads, ensuring candidates are evaluated beyond just coding tests.',
+    basePrice: 2000,
+  },
+  { title: 'Code Auditing & Performance Review', 
+    description: 'Comprehensive frontend code audits focused on performance, scalability, accessibility, maintainability, and best practices. Helping teams improve code quality, optimize user experience, and build faster, more reliable web applications.',
+    basePrice: 2000,
+  }
 ]
 
 export const projects = [
   { name: 'Web Development', desc: 'Build modern, scalable, and responsive websites tailored for performance and business growth.' },
   { name: 'Digital Marketing', desc: 'Drive online growth through targeted digital strategies and audience engagement.' },
   { name: 'SEO Optimization', desc: 'Enhance website structure, speed, and content for improved organic traffic and discoverability.' },
+  
 ]
 
 export const testimonials = [
