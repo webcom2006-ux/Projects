@@ -33,7 +33,7 @@ function TechStacksSection({ stacks }) {
             return (
               <li
                 key={stack.name}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
+                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-slate-200"
               >
                 {Icon ? <Icon className="h-5 w-5 text-accent" /> : null}
                 <span>{stack.name}</span>

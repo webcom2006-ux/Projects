@@ -8,7 +8,7 @@ function PortfolioSection({ projects }) {
             key={project.name}
             className="glass-card p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/50"
           >
-            <h3 className="mt-2 text-2xl text-cyan-200 font-semibold">{project.name}</h3>
+            <h3 className="mt-2 text-2xl text-purple-500 font-semibold">{project.name}</h3>
             <p className="text-lg mt-3">{project.desc}</p>
           </article>
         ))}

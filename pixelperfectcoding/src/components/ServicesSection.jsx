@@ -14,7 +14,7 @@ function ServicesSection({ services }) {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="glass-card group p-6"
           >
-            <h3 className="text-xl text-cyan-200 font-semibold">{service.title}</h3>
+            <h3 className="text-2xl text-purple-500 font-semibold">{service.title}</h3>
             <p className="mt-3 text-slate-300">{service.description}</p>
             <div className="mt-5 h-1 w-14 rounded-full bg-accent/40 transition-all duration-300 group-hover:w-24 group-hover:bg-accent" />
           </motion.article>
