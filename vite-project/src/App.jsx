@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const HomePage = lazy(() => import('./pages/Home').then(m => ({ default: m.HomePage })));
 const BooksPage = lazy(() => import('./pages/Books').then(m => ({ default: m.BooksPage })));
+const TestPage = lazy(() => import('./pages/Test').then(m => ({ default: m.TestPage })));
 
 function Loader() {
   return <div style={{ padding: '20px' }}>Loading...</div>;
@@ -14,6 +15,7 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/test" element={<TestPage />} />
           <Route path="/books/:topic" element={<BooksPage />} />
         </Routes>
       </Suspense>
