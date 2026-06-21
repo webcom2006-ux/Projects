@@ -1,6 +1,16 @@
 import { useMemo, useState } from 'react'
 
 function QuotationSection({ services }) {
+  const enabledAddonServiceTitles = useMemo(
+    () => services.slice(0, 2).map((service) => service.title),
+    [services],
+  )
+
+  const disabledScopeServiceTitles = useMemo(
+    () => services.slice(-2).map((service) => service.title),
+    [services],
+  )
+
   const [formData, setFormData] = useState({
     service: services[0]?.title ?? '',
     pages: 5,
@@ -11,24 +21,34 @@ function QuotationSection({ services }) {
     includeCwv: true,
   })
 
+  const addonsDisabled = !enabledAddonServiceTitles.includes(formData.service)
+  const scopeFieldsDisabled = disabledScopeServiceTitles.includes(formData.service)
+
   const quote = useMemo(() => {
     const selected = services.find((item) => item.title === formData.service)
     const basePrice = selected?.basePrice ?? 0
 
-    const complexityMultiplier =
-      formData.complexity === 'high' ? 1.35 : formData.complexity === 'low' ? 0.9 : 1
+    const complexityMultiplier = scopeFieldsDisabled
+      ? 1
+      : formData.complexity === 'high'
+        ? 1.35
+        : formData.complexity === 'low'
+          ? 0.9
+          : 1
     const timelineMultiplier = formData.timeline === 'express' ? 1.25 : 1
-    const pageFactor = Math.max(1, Number(formData.pages) / 5)
+    const pageFactor = scopeFieldsDisabled ? 1 : Math.max(1, Number(formData.pages) / 5)
 
-    const seoAddon = formData.includeSeo ? 250 : 0
-    const accessibilityAddon = formData.includeAccessibility ? 300 : 0
-    const cwvAddon = formData.includeCwv ? 350 : 0
+    const seoAddon = !addonsDisabled && formData.includeSeo ? 3500 : 0
+    const accessibilityAddon = !addonsDisabled && formData.includeAccessibility ? 1500 : 0
+    const cwvAddon = !addonsDisabled && formData.includeCwv ? 4500 : 0
 
     const subtotal = basePrice * complexityMultiplier * timelineMultiplier * pageFactor
-    const total = Math.round(subtotal + seoAddon + accessibilityAddon + cwvAddon)
+    const regularPrice = Math.round(subtotal + seoAddon + accessibilityAddon + cwvAddon)
+    const offerPrice = Math.round(regularPrice * 0.7)
 
     return {
-      total,
+      regularPrice,
+      offerPrice,
       breakdown: {
         base: basePrice,
         seo: seoAddon,
@@ -36,14 +56,29 @@ function QuotationSection({ services }) {
         cwv: cwvAddon,
       },
     }
-  }, [formData, services])
+  }, [addonsDisabled, formData, scopeFieldsDisabled, services])
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }))
+    setFormData((prev) => {
+      const next = {
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value,
+      }
+
+      if (name === 'service' && !enabledAddonServiceTitles.includes(value)) {
+        next.includeSeo = false
+        next.includeAccessibility = false
+        next.includeCwv = false
+      }
+
+      if (name === 'service' && disabledScopeServiceTitles.includes(value)) {
+        next.pages = 5
+        next.complexity = 'medium'
+      }
+
+      return next
+    })
   }
 
   return (
@@ -57,13 +92,13 @@ function QuotationSection({ services }) {
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <form className="grid gap-4" aria-label="Quotation form">
-            <label className="text-sm">
+            <label className="text-base">
               <span className="mb-2 block text-slate-300">Service</span>
               <select
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-slate-100 outline-none transition focus:border-accent"
+                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent"
               >
                 {services.map((service) => (
                   <option key={service.title} value={service.title}>
@@ -73,7 +108,7 @@ function QuotationSection({ services }) {
               </select>
             </label>
 
-            <label className="text-sm">
+            <label className={`text-base ${scopeFieldsDisabled ? 'opacity-50' : ''}`}>
               <span className="mb-2 block text-slate-300">Estimated pages/screens</span>
               <input
                 type="number"
@@ -82,17 +117,19 @@ function QuotationSection({ services }) {
                 name="pages"
                 value={formData.pages}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-slate-100 outline-none transition focus:border-accent"
+                disabled={scopeFieldsDisabled}
+                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent disabled:cursor-not-allowed"
               />
             </label>
 
-            <label className="text-sm">
+            <label className={`text-base ${scopeFieldsDisabled ? 'opacity-50' : ''}`}>
               <span className="mb-2 block text-slate-300">Complexity</span>
               <select
                 name="complexity"
                 value={formData.complexity}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-slate-100 outline-none transition focus:border-accent"
+                disabled={scopeFieldsDisabled}
+                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent disabled:cursor-not-allowed"
               >
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -100,44 +137,47 @@ function QuotationSection({ services }) {
               </select>
             </label>
 
-            <label className="text-sm">
+            {/* <label className="text-base">
               <span className="mb-2 block text-slate-300">Timeline</span>
               <select
                 name="timeline"
                 value={formData.timeline}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-slate-100 outline-none transition focus:border-accent"
+                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent"
               >
                 <option value="standard">Standard (3-6 weeks)</option>
                 <option value="express">Express (1-3 weeks)</option>
               </select>
-            </label>
+            </label> */}
 
-            <div className="grid gap-2 pt-2 text-sm text-slate-200">
-              <label className="flex items-center gap-2">
+            <div className="grid gap-2 pt-2 text-base text-slate-200">
+              <label className={`flex items-center gap-2 ${addonsDisabled ? 'opacity-50' : ''}`}>
                 <input
                   type="checkbox"
                   name="includeSeo"
                   checked={formData.includeSeo}
                   onChange={handleChange}
+                  disabled={addonsDisabled}
                 />
                 SEO setup
               </label>
-              <label className="flex items-center gap-2">
+              <label className={`flex items-center gap-2 ${addonsDisabled ? 'opacity-50' : ''}`}>
                 <input
                   type="checkbox"
                   name="includeAccessibility"
                   checked={formData.includeAccessibility}
                   onChange={handleChange}
+                  disabled={addonsDisabled}
                 />
-                Accessibility audit
+                Accessibility Enhancement
               </label>
-              <label className="flex items-center gap-2">
+              <label className={`flex items-center gap-2 ${addonsDisabled ? 'opacity-50' : ''}`}>
                 <input
                   type="checkbox"
                   name="includeCwv"
                   checked={formData.includeCwv}
                   onChange={handleChange}
+                  disabled={addonsDisabled}
                 />
                 Core Web Vitals tuning
               </label>
@@ -145,18 +185,33 @@ function QuotationSection({ services }) {
           </form>
 
           <aside className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-            <h3 className="text-xl font-semibold">Estimated Investment</h3>
-            <p className="mt-2 text-sm text-slate-300">
+            <h3 className="text-2xl font-semibold">Estimated Investment</h3>
+            <p className="mt-2 text-base text-slate-300">
               This is a planning estimate. Final quote depends on discovery and
               technical requirements.
             </p>
-            <p className="mt-6 text-4xl font-bold text-cyan-200">${quote.total}</p>
+            <div className="mt-6 space-y-4">
+              <div>
+                <p className="text-base text-slate-400">Regular Price</p>
+                <p className="text-3xl font-semibold text-slate-400 line-through">₹{quote.regularPrice}</p>
+              </div>
+              <div className="relative overflow-hidden rounded-xl border border-accent/50 bg-gradient-to-br from-accent/20 via-cyan-500/10 to-accent/5 p-5 shadow-glow">
+                <span className="absolute right-4 top-4 rounded-full bg-accent px-3 py-1 text-sm font-bold uppercase tracking-wide text-slate-950">
+                  30% off
+                </span>
+                <p className="text-base font-medium text-accent">Offer Price</p>
+                <p className="mt-1 text-5xl font-bold text-cyan-100">₹{quote.offerPrice}</p>
+                <p className="mt-2 text-sm text-slate-300">
+                  You save ₹{quote.regularPrice - quote.offerPrice}
+                </p>
+              </div>
+            </div>
 
-            <ul className="mt-6 grid gap-2 text-sm text-slate-300">
-              <li>Base: ${quote.breakdown.base}</li>
-              <li>SEO: ${quote.breakdown.seo}</li>
-              <li>Accessibility: ${quote.breakdown.accessibility}</li>
-              <li>Core Web Vitals: ${quote.breakdown.cwv}</li>
+            <ul className="mt-6 grid gap-2 text-base text-slate-300">
+              <li>Base: ₹{quote.breakdown.base}</li>
+              <li>SEO: ₹{quote.breakdown.seo}</li>
+              <li>Accessibility: ₹{quote.breakdown.accessibility}</li>
+              <li>Core Web Vitals: ₹{quote.breakdown.cwv}</li>
             </ul>
           </aside>
         </div>
