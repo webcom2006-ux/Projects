@@ -8,37 +8,45 @@ body {
   background: #ffffff;
   color: #333;
 }
+
 body h1 {
   font-size: 48px;
 }
+
 body h1,
 body h2 {
   color: #5E56E7;
   margin: 10px 0;
 }
+
 body p {
   font-size: 12px;
   color: gray;
 }
+
 body .subheading {
   color: #6d6d6d;
   font-size: 20px;
   margin-bottom: 50px;
 }
+
 body .container {
   padding: 20px;
   margin: 8px 0 4px;
 }
+
 body .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 11fr));
   gap: 16px;
 }
+
 @media (max-width: 900px) {
   body .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+
 @media (max-width: 600px) {
   body .grid {
     grid-template-columns: 1fr !important;
@@ -50,6 +58,7 @@ body .grid {
   grid-template-columns: repeat(2, minmax(0, 11fr));
   gap: 50px;
 }
+
 .book-genre .card {
   position: relative;
   background: #fff;
@@ -60,6 +69,7 @@ body .grid {
   font-size: 20px;
   text-transform: uppercase;
 }
+
 .book-genre .card::before,
 .book-genre .card::after {
   content: "";
@@ -72,11 +82,13 @@ body .grid {
   background-position: center;
   transform: translateY(-50%);
 }
+
 .book-genre .card::before {
   left: 8px;
   background-image: url("/src/assets/book-solid.png");
   transform: translateY(-50%) scaleX(-1);
 }
+
 .book-genre .card::after {
   right: 8px;
   background-image: url("/src/assets/angle-right-solid.png");
@@ -110,9 +122,14 @@ input {
   background-size: 16px 16px;
   background-color: #eee;
 }
+
 input:focus {
   outline: none;
   border-color: #5E56E7;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=common.css.map */

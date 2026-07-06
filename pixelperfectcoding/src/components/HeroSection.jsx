@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import image1 from "../assets/image1.jpg";
-import image2 from "../assets/image2.jpg";
-import image3 from "../assets/image3.jpg";
+import image1 from '../assets/image1.jpg'
+import image2 from '../assets/image2.jpg'
+import image3 from '../assets/image3.jpg'
 
 function HeroSection() {
   return (
@@ -40,41 +40,33 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto mt-2 hidden h-[320px] w-full max-w-[420px] sm:block lg:h-[360px] lg:max-w-[460px]"
+          className="relative mx-auto mt-2 block h-[320px] w-full max-w-[520px] sm:h-[360px] lg:h-[400px]"
           aria-hidden="true"
         >
-         <motion.div
-            animate={{ y: [0, -16, 0], rotate: [0, 8, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-8 top-10 h-24 w-24 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-indigo-300/40 to-blue-500/10 shadow-glow lg:left-10 lg:h-28 lg:w-28"
-          >
-            <img
-              src={image2}
-              alt="Card Image"
-              className="w-full h-full object-cover rounded-[inherit]"
-            />
-          </motion.div>
-          <motion.div
-            animate={{ y: [0, 20, 0], x: [0, 10, 0] }}
-            transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute right-6 top-20 h-16 w-16 rounded-full bg-cyan-300/30 blur-[1px] lg:right-8 lg:h-20 lg:w-20"
-          />
-          <motion.div
-            animate={{ y: [0, -14, 0], rotate: [0, -10, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-card absolute bottom-8 left-8 h-32 w-40 overflow-hidden rounded-[2rem] border-white/20 bg-white/10 lg:bottom-10 lg:left-12 lg:h-36 lg:w-48"
-          >
-            <img
-              src={image3}
-              alt="Card Image"
-              className="w-full h-full object-cover"
-            />
-        </motion.div>
-          <div className="glass-card absolute right-8 top-24 h-40 w-40 rounded-[2rem] border-white/20 bg-gradient-to-tr from-indigo-500/20 via-white/10 to-cyan-300/15 lg:right-12 lg:top-28 lg:h-48 lg:w-48">
-            <img 
-              alt="Logo" 
+          <div className="relative h-full w-full overflow-hidden rounded-[3rem] bg-slate-950/50 shadow-2xl">
+            <motion.img
               src={image1}
-              className="w-full h-full object-cover rounded-[inherit]"
+              alt="Hero visual"
+              className="absolute inset-4 h-[calc(100%-2rem)] w-[calc(100%-2rem)] rounded-[3rem] object-cover"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: [0, 1, 1, 0, 0], scale: [0.96, 1, 1, 1.02, 1.02] }}
+              transition={{ duration: 9, ease: 'easeInOut', times: [0, 0.05, 0.25, 0.3, 1], repeat: Infinity }}
+            />
+            <motion.img
+              src={image2}
+              alt="Hero visual"
+              className="absolute inset-4 h-[calc(100%-2rem)] w-[calc(100%-2rem)] rounded-[3rem] object-cover"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.96, 0.96, 1, 1, 1.02] }}
+              transition={{ duration: 9, ease: 'easeInOut', times: [0, 0.3, 0.35, 0.55, 1], repeat: Infinity }}
+            />
+            <motion.img
+              src={image3}
+              alt="Hero visual"
+              className="absolute inset-4 h-[calc(100%-2rem)] w-[calc(100%-2rem)] rounded-[3rem] object-cover"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: [0, 0, 0, 1, 1], scale: [0.96, 0.96, 0.96, 1, 1.02] }}
+              transition={{ duration: 9, ease: 'easeInOut', times: [0, 0.55, 0.6, 0.8, 1], repeat: Infinity }}
             />
           </div>
         </motion.div>

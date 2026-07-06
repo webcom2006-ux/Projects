@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
+import { FaEnvelope, FaFileAlt, FaImages, FaLayerGroup, FaConciergeBell } from 'react-icons/fa'
+import { navLinks } from '../data/portfolioData'
 import logo from "../assets/logo-hr-light.png";
 
-
-const homeLinks = [
-  { label: 'Technology Stacks', href: '/#stacks' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Portfolio', href: '/#portfolio' },
- /*  { label: 'Testimonials', href: '/#testimonials' }, */
-]
+const iconMap = {
+  'Technology Stacks': FaLayerGroup,
+  Services: FaConciergeBell,
+  Portfolio: FaImages,
+  Quotation: FaFileAlt,
+  Testimonials: FaFileAlt,
+  Contact: FaEnvelope,
+}
 
 function Navbar() {
   return (
@@ -17,32 +20,37 @@ function Navbar() {
           <img src={logo} alt="Logo" className="brand-logo inline-block h-8 w-auto mr-2 align-middle" />
         </Link>
         <ul className="hidden gap-6 text-sm text-slate-300 md:flex">
-          {homeLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="transition hover:text-white focus-visible:text-white"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <Link
-              to="/quotation"
-              className="transition hover:text-white focus-visible:text-white"
-            >
-              Quotation
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="transition hover:text-white focus-visible:text-white"
-            >
-              Contact
-            </Link>
-          </li>
+          {navLinks.map((link) => {
+            const LinkIcon = iconMap[link.label]
+            const content = (
+              <>
+                {LinkIcon ? <LinkIcon className="h-4 w-4 text-accent" aria-hidden="true" /> : null}
+                <span>{link.label}</span>
+              </>
+            )
+
+            const isHashAnchor = link.href.startsWith('#') || link.href.startsWith('/#')
+
+            return (
+              <li key={link.href}>
+                {isHashAnchor ? (
+                  <a
+                    href={link.href}
+                    className="group inline-flex items-center gap-2 transition hover:text-white focus-visible:text-white"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className="group inline-flex items-center gap-2 transition hover:text-white focus-visible:text-white"
+                  >
+                    {content}
+                  </Link>
+                )}
+              </li>
+            )
+          })}
         </ul>
       </nav>
     </header>
