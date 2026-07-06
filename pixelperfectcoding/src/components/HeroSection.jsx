@@ -40,7 +40,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto mt-2 block h-[320px] w-full max-w-[520px] sm:h-[360px] lg:h-[400px]"
+          className="relative mx-auto mt-2 hidden h-[320px] w-full max-w-[520px] sm:h-[360px] md:block lg:h-[400px]"
           aria-hidden="true"
         >
           <div className="relative h-full w-full overflow-hidden rounded-[3rem] bg-slate-950/50 shadow-2xl">

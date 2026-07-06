@@ -1,13 +1,16 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { projects, services, stacks, testimonials } from './data/portfolioData'
 import Footer from './components/Footer'
+import ScrollToTopButton from './components/ScrollToTopButton'
 import HomePage from './pages/HomePage'
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const QuotationPage = lazy(() => import('./pages/QuotationPage'))
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <div className="relative overflow-x-hidden">
       <a
@@ -17,7 +20,7 @@ function App() {
         Skip to content
       </a>
 
-      <Navbar />
+      <Navbar menuOpen={menuOpen} onMenuOpenChange={setMenuOpen} />
 
       <main id="main-content" className='main-content'>
         <Suspense fallback={<div className="container-shell py-32 text-center">Loading...</div>}>
@@ -39,6 +42,7 @@ function App() {
         </Suspense>
       </main>
       <Footer />
+      <ScrollToTopButton menuOpen={menuOpen} onScrollToTop={() => setMenuOpen(false)} />
     </div>
   )
 }

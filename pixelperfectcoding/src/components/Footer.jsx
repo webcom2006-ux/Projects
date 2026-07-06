@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const footerLinks = [
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/santosh-kumar-b6a02023/',
+    href: '/',
     external: true,
   }
 ]
