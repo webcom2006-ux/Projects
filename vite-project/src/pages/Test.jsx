@@ -4,9 +4,21 @@ import { users, post }  from '../api/user';
  export function TestPage() { 
   const [userData, setUserData] = useState([]);
   const [postData, setPostData] = useState([]);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+  const [updateName, setupdateName] = useState('');
 
   function deleteList(postId) {
     setPostData((prevPostData) => prevPostData.filter((post) => post.id !== postId));
+  }
+
+  function handleSave(updatedName) { 
+    setUserData((prevUserData) => {
+      return prevUserData.map((user) =>
+        user.id === selectedUserId ? { ...user, name: updatedName } : user // for updating  name value of selected user id in userData array
+        //user.id === selectedUserId ? { ...user, newkey: "updatedName"} : user // for adding new key-value in matched user id object in userData array  
+    );
+    });
+    setSelectedUserId(null); // Reset the selected user ID after saving
   }
 
  useEffect(() => {
@@ -36,6 +48,7 @@ import { users, post }  from '../api/user';
       dialog.showModal();
       //dialog.show(); //no shadow behind the modal
     });
+    document.getElementById("inertremove").inert = false;
 
     document.getElementById("closeBtn").addEventListener("click", () => {
       document.getElementById("inertremove").inert = false; // Enable interaction with the rest of the page
@@ -85,8 +98,27 @@ import { users, post }  from '../api/user';
 
   return (
     <div className="container">
-    
       <h1>Testing Page <br /><br /></h1> 
+
+      {userData.map((user) => (
+        <div key={user.id}>
+          {selectedUserId === user.id ? <div> 
+            <input type="text" value={updateName} onChange={(e) => setupdateName(e.target.value)} />
+            <button onClick={() => handleSave(updateName)}>Save</button>
+            <button onClick={() => setSelectedUserId(null)}>Cancel</button>
+          </div> :           
+           <div onClick={()=>{
+             setSelectedUserId(user.id);
+             setupdateName(user.name)
+           }
+
+           }>{user.name}</div>
+          }
+          
+        </div>
+      ))} 
+
+
     <div inert id="inertremove">
       {
         userData.map((user) => (
