@@ -17,10 +17,10 @@ function HeroSection() {
   const activeSlide = heroSlides[activeIndex]
 
   return (
-    <section className="relative isolate bg-hero-radial pb-20 pt-16 md:pb-28 md:pt-14">
+    <section className="relative isolate bg-hero-radial cst-pt-16 pb-20 pt-16 md:pb-28 md:pt-14">
       <div className="container-shell">
-        <div className="mb-8 flex justify-start">
-          <h1 className="inline-flex items-center rounded-full border border-cyan-400/40 bg-gradient-to-r from-cyan-400/20 via-sky-400/15 to-slate-900/80 px-5 py-2.5 text-lg font-semibold uppercase tracking-[0.2em] text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.16)] sm:text-xl">
+        <div className="mb-8 flex w-full justify-center md:justify-start">
+          <h1 className="cst-center-text inline-flex w-full max-w-fit items-center justify-center rounded-full border border-cyan-400/40 bg-gradient-to-r from-cyan-400/20 via-sky-400/15 to-slate-900/80 px-5 py-2.5 text-lg font-semibold uppercase tracking-[0.2em] text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.16)] sm:text-xl">
             Your Frontend Consulting Partner
           </h1>
         </div>
@@ -31,7 +31,7 @@ function HeroSection() {
           transition={{ duration: 0.45, ease: 'easeOut' }}
           className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]"
         >
-          <div> 
+          <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ function HeroSection() {
               {activeSlide.description}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
               <a
                 href={activeSlide.ctaHref}
                 className="rounded-xl bg-accent px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"

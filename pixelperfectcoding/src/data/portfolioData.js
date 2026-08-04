@@ -50,12 +50,12 @@ export const services = [
   {
     title: 'Support & Consulting',
     description: 'Receive professional technical consultation, website maintenance, and expert solutions to ensure long-term performance and stability.',
-    basePrice: 9000,
+    basePrice: 7000,
     image: 'support.avif',
   },
   { title: 'Frontend Hiring & Evaluation Partner', 
     description: 'Helping companies hire skilled frontend engineers through practical technical assessments, React/UI evaluations, and real-world architecture discussions beyond traditional coding tests.',
-    basePrice: 19000,
+    basePrice: 2500,
     image: 'evaluation.avif',
   }
 ]

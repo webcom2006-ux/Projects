@@ -67,3 +67,17 @@
     scroll-behavior: auto !important;
   }
 }
+
+.cst-center-text {
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .cst-pt-16 {
+    padding-top: 2rem;
+  }
+
+  .log-text-fs {
+    font-size: .8rem;
+  }
+}

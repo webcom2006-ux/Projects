@@ -55,7 +55,7 @@ function ContactSection() {
   return (
     <section id="contact" className="container-shell pb-24 main-content-othr">
       <div className="glass-card p-8 md:p-10">
-        <h2 className="section-heading">Contact</h2>
+        <h2 className="section-heading">Contact Us</h2>
         <form
           className="mt-8 grid gap-5 md:grid-cols-2"
           aria-label="Contact form"

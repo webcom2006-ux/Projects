@@ -23,6 +23,8 @@ function QuotationSection({ services }) {
 
   const addonsDisabled = !enabledAddonServiceTitles.includes(formData.service)
   const scopeFieldsDisabled = disabledScopeServiceTitles.includes(formData.service)
+  const showScopeFields = !scopeFieldsDisabled
+  const showFeatureOptions = !addonsDisabled
 
   const quote = useMemo(() => {
     const selected = services.find((item) => item.title === formData.service)
@@ -51,12 +53,16 @@ function QuotationSection({ services }) {
       offerPrice,
       breakdown: {
         base: basePrice,
-        seo: seoAddon,
-        accessibility: accessibilityAddon,
-        cwv: cwvAddon,
+        ...(showFeatureOptions
+          ? {
+              seo: seoAddon,
+              accessibility: accessibilityAddon,
+              cwv: cwvAddon,
+            }
+          : {}),
       },
     }
-  }, [addonsDisabled, formData, scopeFieldsDisabled, services])
+  }, [addonsDisabled, formData, scopeFieldsDisabled, services, showFeatureOptions])
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target
@@ -108,34 +114,36 @@ function QuotationSection({ services }) {
               </select>
             </label>
 
-            <label className={`text-base ${scopeFieldsDisabled ? 'opacity-50' : ''}`}>
-              <span className="mb-2 block text-slate-300">Estimated pages/screens</span>
-              <input
-                type="number"
-                min="1"
-                max="50"
-                name="pages"
-                value={formData.pages}
-                onChange={handleChange}
-                disabled={scopeFieldsDisabled}
-                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent disabled:cursor-not-allowed"
-              />
-            </label>
+            {showScopeFields ? (
+              <>
+                <label className="text-base">
+                  <span className="mb-2 block text-slate-300">Estimated pages/screens</span>
+                  <input
+                    type="number"
+                    min="1"
+                    max="50"
+                    name="pages"
+                    value={formData.pages}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent"
+                  />
+                </label>
 
-            <label className={`text-base ${scopeFieldsDisabled ? 'opacity-50' : ''}`}>
-              <span className="mb-2 block text-slate-300">Complexity</span>
-              <select
-                name="complexity"
-                value={formData.complexity}
-                onChange={handleChange}
-                disabled={scopeFieldsDisabled}
-                className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent disabled:cursor-not-allowed"
-              >
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-              </select>
-            </label>
+                <label className="text-base">
+                  <span className="mb-2 block text-slate-300">Complexity</span>
+                  <select
+                    name="complexity"
+                    value={formData.complexity}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/15 bg-slate-900/50 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-accent"
+                  >
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </label>
+              </>
+            ) : null}
 
             {/* <label className="text-base">
               <span className="mb-2 block text-slate-300">Timeline</span>
@@ -150,38 +158,37 @@ function QuotationSection({ services }) {
               </select>
             </label> */}
 
-            <div className="grid gap-2 pt-2 text-base text-slate-200">
-              <label className={`flex items-center gap-2 ${addonsDisabled ? 'opacity-50' : ''}`}>
-                <input
-                  type="checkbox"
-                  name="includeSeo"
-                  checked={formData.includeSeo}
-                  onChange={handleChange}
-                  disabled={addonsDisabled}
-                />
-                SEO setup
-              </label>
-              <label className={`flex items-center gap-2 ${addonsDisabled ? 'opacity-50' : ''}`}>
-                <input
-                  type="checkbox"
-                  name="includeAccessibility"
-                  checked={formData.includeAccessibility}
-                  onChange={handleChange}
-                  disabled={addonsDisabled}
-                />
-                Accessibility Enhancement
-              </label>
-              <label className={`flex items-center gap-2 ${addonsDisabled ? 'opacity-50' : ''}`}>
-                <input
-                  type="checkbox"
-                  name="includeCwv"
-                  checked={formData.includeCwv}
-                  onChange={handleChange}
-                  disabled={addonsDisabled}
-                />
-                Core Web Vitals tuning
-              </label>
-            </div>
+            {showFeatureOptions ? (
+              <div className="grid gap-2 pt-2 text-base text-slate-200">
+                <label className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="includeSeo"
+                    checked={formData.includeSeo}
+                    onChange={handleChange}
+                  />
+                  SEO setup
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="includeAccessibility"
+                    checked={formData.includeAccessibility}
+                    onChange={handleChange}
+                  />
+                  Accessibility Enhancement
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="includeCwv"
+                    checked={formData.includeCwv}
+                    onChange={handleChange}
+                  />
+                  Core Web Vitals tuning
+                </label>
+              </div>
+            ) : null}
           </form>
 
           <aside className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
@@ -209,9 +216,11 @@ function QuotationSection({ services }) {
 
             <ul className="mt-6 grid gap-2 text-base text-slate-300">
               <li>Base: ₹{quote.breakdown.base}</li>
-              <li>SEO: ₹{quote.breakdown.seo}</li>
-              <li>Accessibility: ₹{quote.breakdown.accessibility}</li>
-              <li>Core Web Vitals: ₹{quote.breakdown.cwv}</li>
+              {quote.breakdown.seo !== undefined ? <li>SEO: ₹{quote.breakdown.seo}</li> : null}
+              {quote.breakdown.accessibility !== undefined ? (
+                <li>Accessibility: ₹{quote.breakdown.accessibility}</li>
+              ) : null}
+              {quote.breakdown.cwv !== undefined ? <li>Core Web Vitals: ₹{quote.breakdown.cwv}</li> : null}
             </ul>
           </aside>
         </div>
