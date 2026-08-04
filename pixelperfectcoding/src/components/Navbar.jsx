@@ -56,18 +56,15 @@ function Navbar({ menuOpen, onMenuOpenChange }) {
       <nav className="container-shell flex h-16 items-center justify-between">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 px-3 py-2 font-semibold tracking-[0.2em] text-slate-100 transition hover:text-white"
+          className="inline-flex items-center gap-2 px-3 py-2 tracking-[0.1em] text-slate-100 transition hover:text-white"
           onClick={closeMenu}
         >
-          <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-fuchsia-400/20 text-fuchsia-300 shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_0_16px_rgba(217,70,239,0.25)]">
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="4" y="4" width="6" height="6" rx="1" />
-              <rect x="14" y="4" width="6" height="6" rx="1" />
-              <rect x="4" y="14" width="6" height="6" rx="1" />
-              <rect x="14" y="14" width="6" height="6" rx="1" />
-            </svg>
-          </span>
-          <span className="log-text-fs text-[0.95rem] uppercase text-fuchsia-300">Pixel Perfect Coding</span>
+          <img
+            src="/ppc-logo.webp"
+            alt="Pixel Perfect Coding logo"
+            className="h-8 w-8 rounded-md object-contain ppc-logo-img"
+          />
+          <span className="log-text-fs uppercase text-sky-400 font-bold">Pixel Perfect Coding</span>
         </Link>
 
         <ul className="hidden gap-6 text-sm text-slate-300 md:flex">

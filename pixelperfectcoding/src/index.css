@@ -72,6 +72,10 @@
   text-align: center;
 }
 
+.log-text-fs {
+  font-size: 1.1rem;
+}
+
 @media screen and (max-width: 767px) {
   .cst-pt-16 {
     padding-top: 2rem;
@@ -79,5 +83,10 @@
 
   .log-text-fs {
     font-size: .8rem;
+  }
+
+  .ppc-logo-img {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 }
