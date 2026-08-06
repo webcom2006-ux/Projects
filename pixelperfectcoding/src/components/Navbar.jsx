@@ -6,11 +6,13 @@ import {
   FaImages,
   FaLayerGroup,
   FaConciergeBell,
+  FaInfoCircle,
   FaTimes,
 } from 'react-icons/fa'
 import { navLinks } from '../data/portfolioData'
 
 const iconMap = {
+  'About Us': FaInfoCircle,
   'Technology Stacks': FaLayerGroup,
   Services: FaConciergeBell,
   Portfolio: FaImages,

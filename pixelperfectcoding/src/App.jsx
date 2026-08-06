@@ -7,6 +7,7 @@ import ScrollToTopButton from './components/ScrollToTopButton'
 import HomePage from './pages/HomePage'
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const QuotationPage = lazy(() => import('./pages/QuotationPage'))
+const AboutPage = lazy(() => import('./pages/about'))
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -36,6 +37,7 @@ function App() {
                 />
               }
             />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/quotation" element={<QuotationPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>

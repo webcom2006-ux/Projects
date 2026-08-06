@@ -1,5 +1,5 @@
 export const navLinks = [
-  { label: 'Technology Stacks', href: '/#stacks' },
+  { label: 'About Us', href: '/about' },
   { label: 'Services', href: '/#services' },
   { label: 'Portfolio', href: '/#portfolio' },
   { label: 'Quotation', href: '/quotation' },
