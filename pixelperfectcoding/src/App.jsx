@@ -8,7 +8,7 @@ import ScrollToTopButton from './components/ScrollToTopButton'
 import HomePage from './pages/HomePage'
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const QuotationPage = lazy(() => import('./pages/QuotationPage'))
-const AboutPage = lazy(() => import('./pages/About'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
