@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function AboutPage() {
   return (
-    <main className="max-w-6xl mx-auto px-6 py-16">
+    <main className="max-w-6xl mx-auto px-6 py-16"> 
       <section className="rounded-2xl bg-gradient-to-r from-sky-800 via-sky-800 to-indigo-800 text-white p-6 sm:p-12 mb-10 shadow-lg">
         <div className="md:flex md:items-center md:gap-10">
           <div className="md:flex-1">
