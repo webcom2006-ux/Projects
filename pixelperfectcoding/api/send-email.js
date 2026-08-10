@@ -41,7 +41,7 @@ export default async function handler(req, res) {
   try {
     console.log('BODY:', req.body)
 
-    const { name, email, message } = req.body || {}
+    const { name, email, mobile, message } = req.body || {}
 
     // Validation
     if (!name || !email || !message) {
@@ -61,6 +61,7 @@ export default async function handler(req, res) {
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        ${mobile ? `<p><strong>Mobile Number:</strong> ${mobile}</p>` : ''}
         <p><strong>Message:</strong></p>
         <p>${String(message).replace(/\n/g, '<br>')}</p>
       `,

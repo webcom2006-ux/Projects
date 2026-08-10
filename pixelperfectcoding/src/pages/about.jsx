@@ -15,8 +15,8 @@ function AboutPage() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-sky-800 px-5 py-2 rounded-md font-semibold shadow hover:opacity-95">Get in touch</Link>
-              <Link to="/quotation" className="inline-flex items-center gap-2 border border-white/30 px-5 py-2 rounded-md text-white hover:bg-white/5">Request a quote</Link>
+              <Link to="/contact" className="inline-flex mbl-btn-100 items-center gap-2 bg-white text-sky-800 px-5 py-2 rounded-md font-semibold shadow hover:opacity-95">Get in touch</Link>
+              <Link to="/quotation" className="inline-flex mbl-btn-100 items-center gap-2 border border-white/30 px-5 py-2 rounded-md text-white hover:bg-white/5">Request a quote</Link>
             </div>
           </div>
 
@@ -121,7 +121,7 @@ function AboutPage() {
       <section className="text-center py-8">
         <h2 className="text-3xl font-semibold mb-3 text-sky-400">Let's Build Better Frontend Experiences</h2>
         <p className="text-gray-400 max-w-2xl mx-auto mb-6">Whether you need expert consulting, ongoing engineering support, independent frontend interview evaluations, or a trusted partner to improve your digital products, Pixel Perfect Coding is here to help.</p>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-4 cstm-flx">
           <Link
             to="/contact"
             className="bg-sky-600 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-sky-700 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"

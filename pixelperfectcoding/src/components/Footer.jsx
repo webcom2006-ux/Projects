@@ -11,7 +11,7 @@ const footerLinks = [
 function Footer() {
   return (
     <footer className="border-t border-white/10 bg-slate-950/80">
-      <div className="container-shell flex flex-col gap-4 py-8 text-sm text-slate-300 md:flex-row md:items-center md:justify-between">
+      <div className="container-shell flex flex-col gap-4 py-8 text-sm text-slate-300 md:items-center md:justify-between">
         <p>
           © {new Date().getFullYear()} Pixel Perfect Coding. All rights reserved.
         </p>

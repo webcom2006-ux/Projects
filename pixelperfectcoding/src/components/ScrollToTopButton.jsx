@@ -32,7 +32,7 @@ function ScrollToTopButton({ menuOpen = false, onScrollToTop }) {
       type="button"
       onClick={scrollToTop}
       aria-label="Scroll to top"
-      className="fixed bottom-6 right-6 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent text-slate-950 shadow-glow transition hover:scale-105 hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="fixed bottom-20 right-6 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent text-slate-950 shadow-glow transition hover:scale-105 hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <FaArrowUp className="h-5 w-5" aria-hidden="true" />
     </button>

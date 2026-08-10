@@ -89,4 +89,13 @@
     height: 1.5rem;
     width: 1.5rem;
   }
+
+  .mbl-btn-100 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cstm-flx {
+    display: grid;
+  }
 }
