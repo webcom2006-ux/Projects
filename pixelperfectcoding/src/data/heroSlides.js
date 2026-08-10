@@ -58,7 +58,7 @@ export const heroSlides = [
     imageAlt: 'Optimize Performance',
   },
   {
-    heading: 'Design System Consulting - Create Consistent, Scalable User Interfaces',
+    heading: 'Design System Consulting - Create Consistent, Scalable User Interfaces', 
     description:
       'Accelerate product development with a reusable design system that delivers consistency, accessibility, and faster engineering across teams and applications.',
     highlights: ['Component Library', 'Design Tokens & Theming', 'Storybook & Documentation'],
