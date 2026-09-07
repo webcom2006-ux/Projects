@@ -58,15 +58,14 @@ function Navbar({ menuOpen, onMenuOpenChange }) {
       <nav className="container-shell flex h-16 items-center justify-between">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 px-3 py-2 tracking-[0.1em] text-slate-100 transition hover:text-white"
+          className="inline-flex items-center gap-2 tracking-[0.1em] text-slate-100 transition hover:text-white"
           onClick={closeMenu}
         >
           <img
-            src="/ppc-logo.webp"
+            src="/ppc_logo.svg"
             alt="Pixel Perfect Coding logo"
-            className="h-8 w-8 rounded-md object-contain ppc-logo-img"
+            className="h-12 w-auto object-contain"
           />
-          <span className="log-text-fs uppercase text-sky-400 font-bold">Pixel Perfect Coding</span>
         </Link>
 
         <ul className="hidden gap-6 text-sm text-slate-300 md:flex">
