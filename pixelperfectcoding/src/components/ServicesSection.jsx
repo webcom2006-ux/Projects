@@ -38,10 +38,10 @@ function ServicesSection({ services }) {
               <div className="mt-5 h-1 w-14 rounded-full bg-accent/40 transition-all duration-300 group-hover:w-24 group-hover:bg-accent" />
               <div className="mt-4 flex justify-end">
                 <Link
-                  to="/quotation"
-                  className="inline-flex items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-semibold text-slate-950 transition hover:brightness-105"
+                  to={`/services/${service.slug}`}
+                  className="inline-flex items-center justify-center rounded-full border border-accent/50 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/10"
                 >
-                  Get a Quote
+                  View Service
                 </Link>
               </div>
             </motion.article>

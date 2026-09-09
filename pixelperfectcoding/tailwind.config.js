@@ -17,7 +17,7 @@ export default {
       },
       backgroundImage: {
         'hero-radial':
-          'radial-gradient(circle at 20% 20%, rgba(124, 140, 255, 0.2), transparent 45%), radial-gradient(circle at 80% 15%, rgba(0, 214, 255, 0.15), transparent 40%), linear-gradient(160deg, #05070f 0%, #0a1022 45%, #05070f 100%)',
+          'radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.24), transparent 45%), radial-gradient(circle at 80% 15%, rgba(217, 70, 239, 0.18), transparent 40%), linear-gradient(160deg, #080612 0%, #140b25 45%, #080612 100%)',
       },
     },
   },

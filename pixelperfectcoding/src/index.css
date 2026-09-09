@@ -15,8 +15,9 @@
   body {
     @apply m-0 bg-surface font-sans text-slate-200 antialiased text-xl;
     background-image:
-      radial-gradient(circle at 10% -10%, rgba(124, 140, 255, 0.25), transparent 40%),
-      radial-gradient(circle at 90% 0%, rgba(0, 214, 255, 0.15), transparent 35%);
+      radial-gradient(circle at 10% -10%, rgba(168, 85, 247, 0.3), transparent 42%),
+      radial-gradient(circle at 90% 0%, rgba(217, 70, 239, 0.2), transparent 38%),
+      linear-gradient(160deg, #080612 0%, #140b25 52%, #080612 100%);
   }
 
   h1,
@@ -37,9 +38,6 @@
     height: 50px !important;
   }
 
-  .justify-between {
-    overflow: hidden;
-  }
 }
 
 @layer components {

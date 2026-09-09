@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage'
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const QuotationPage = lazy(() => import('./pages/QuotationPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ServicePage = lazy(() => import('./pages/ServicePage'))
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -42,6 +43,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/quotation" element={<QuotationPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/services/:slug" element={<ServicePage services={services} />} />
           </Routes>
         </Suspense>
       </main>
