@@ -1,4 +1,5 @@
 import '../src/index.css'
+import Script from 'next/script'
 
 export const metadata = {
   title: {
@@ -47,7 +48,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2NQDF2VK76"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2NQDF2VK76');
+          `}
+        </Script>
+      </body>
     </html>
   )
 }
