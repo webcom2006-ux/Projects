@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 const footerLinks = [
   {
@@ -19,23 +19,23 @@ function Footer() {
         <nav aria-label="Footer links">
           <ul className="flex flex-wrap gap-4">
             <li>
-              <Link to="/" className="transition hover:text-white">
+              <Link href="/" className="transition hover:text-white">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/quotation" className="transition hover:text-white">
+              <Link href="/quotation" className="transition hover:text-white">
                 Quotation
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="transition hover:text-white">
+              <Link href="/contact" className="transition hover:text-white">
                 Contact
               </Link>
             </li>
             {footerLinks.map((link) => (
               <li key={link.label}>
-                <Link to={link.href} className="transition hover:text-white">
+                <Link href={link.href} className="transition hover:text-white">
                   {link.label}
                 </Link>
               </li>

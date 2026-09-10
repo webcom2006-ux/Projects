@@ -1,7 +1,6 @@
-import { Link, useParams } from 'react-router-dom'
+import Link from 'next/link'
 
-function ServicePage({ services }) {
-  const { slug } = useParams()
+function ServicePage({ services, slug }) {
   const service = services.find((item) => item.slug === slug)
 
   if (!service) {
@@ -9,21 +8,19 @@ function ServicePage({ services }) {
       <section className="container-shell py-24 text-center">
         <h1 className="text-4xl font-semibold text-white">Service not found</h1>
         <p className="mt-4 text-slate-400">The service you are looking for is not available.</p>
-        <Link to="/#services" className="mt-8 inline-flex rounded-full bg-accent px-5 py-3 font-semibold text-slate-950">
+        <Link href="/#services" className="mt-8 inline-flex rounded-full bg-accent px-5 py-3 font-semibold text-slate-950">
           Browse services
         </Link>
       </section>
     )
   }
 
-  const imageSrc = service.image
-    ? new URL(`../assets/${service.image}`, import.meta.url).href
-    : undefined
+  const imageSrc = service.image ? `/assets/${service.image}` : undefined
   const isScalableDevelopment = service.slug === 'scalable-frontend-web-development'
 
   return (
     <article className="container-shell py-12 sm:py-20">
-      <Link to="/#services" className="text-sm font-semibold text-accent transition hover:text-white">
+      <Link href="/#services" className="text-sm font-semibold text-accent transition hover:text-white">
         ← Back to services
       </Link>
 
@@ -41,7 +38,7 @@ function ServicePage({ services }) {
             <h1 className="mt-4 text-4xl font-bold text-white sm:text-5xl">{service.title}</h1>
             <p className="mt-6 text-lg leading-8 text-slate-300">{service.description}</p>
             <Link
-              to="/quotation"
+              href="/quotation"
               className="mt-8 inline-flex rounded-full bg-accent px-5 py-3 font-semibold text-slate-950 transition hover:brightness-110"
             >
               Request a quote

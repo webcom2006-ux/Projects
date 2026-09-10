@@ -1,17 +1,12 @@
-import { lazy, Suspense, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+'use client'
+
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import ContactSection from './components/ContactSection'
-import { projects, services, stacks, testimonials } from './data/portfolioData'
 import Footer from './components/Footer'
 import ScrollToTopButton from './components/ScrollToTopButton'
-import HomePage from './pages/HomePage'
-const ContactPage = lazy(() => import('./pages/ContactPage'))
-const QuotationPage = lazy(() => import('./pages/QuotationPage'))
-const AboutPage = lazy(() => import('./pages/AboutPage'))
-const ServicePage = lazy(() => import('./pages/ServicePage'))
 
-function App() {
+function App({ children }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [showContactWidget, setShowContactWidget] = useState(false)
 
@@ -26,26 +21,8 @@ function App() {
 
       <Navbar menuOpen={menuOpen} onMenuOpenChange={setMenuOpen} />
 
-      <main id="main-content" className='main-content'>
-        <Suspense fallback={<div className="container-shell py-32 text-center">Loading...</div>}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  services={services}
-                  projects={projects}
-                  stacks={stacks}
-                  testimonials={testimonials}
-                />
-              }
-            />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/quotation" element={<QuotationPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/services/:slug" element={<ServicePage services={services} />} />
-          </Routes>
-        </Suspense>
+      <main id="main-content" className="main-content">
+        {children}
       </main>
       <Footer />
       {!showContactWidget ? (

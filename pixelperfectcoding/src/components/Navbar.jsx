@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import {
   FaBars,
   FaEnvelope,
@@ -41,7 +43,7 @@ function NavLinkItem({ link, className, onNavigate }) {
   }
 
   return (
-    <Link to={link.href} className={className} onClick={onNavigate}>
+    <Link href={link.href} className={className} onClick={onNavigate}>
       {content}
     </Link>
   )
@@ -68,7 +70,7 @@ function ServicesNavItem({ mobile = false, onNavigate }) {
       >
         {services.map((service) => (
           <li key={service.slug}>
-            <Link to={`/services/${service.slug}`} className={serviceLinkClassName} onClick={onNavigate}>
+            <Link href={`/services/${service.slug}`} className={serviceLinkClassName} onClick={onNavigate}>
               {service.title}
             </Link>
           </li>
@@ -88,7 +90,7 @@ function Navbar({ menuOpen, onMenuOpenChange }) {
     <header className="sticky top-0 z-[100] overflow-visible border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
       <nav className="container-shell flex h-16 items-center justify-between overflow-visible">
         <Link
-          to="/"
+          href="/"
           className="inline-flex items-center gap-2 tracking-[0.1em] text-slate-100 transition hover:text-white"
           onClick={closeMenu}
         >

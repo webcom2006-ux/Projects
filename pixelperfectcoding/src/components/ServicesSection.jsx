@@ -1,5 +1,7 @@
+'use client'
+
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function ServicesSection({ services }) {
   return (
@@ -7,9 +9,7 @@ function ServicesSection({ services }) {
       <h2 className="section-heading">Services That Blend Design, Speed & Scalability</h2>
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         {services.map((service, index) => {
-          const imageSrc = service.image
-            ? new URL(`../assets/${service.image}`, import.meta.url).href
-            : undefined
+          const imageSrc = service.image ? `/assets/${service.image}` : undefined
 
           return (
             <motion.article
@@ -38,7 +38,7 @@ function ServicesSection({ services }) {
               <div className="mt-5 h-1 w-14 rounded-full bg-accent/40 transition-all duration-300 group-hover:w-24 group-hover:bg-accent" />
               <div className="mt-4 flex justify-end">
                 <Link
-                  to={`/services/${service.slug}`}
+                  href={`/services/${service.slug}`}
                   className="inline-flex items-center justify-center rounded-full border border-accent/50 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/10"
                 >
                   View Service

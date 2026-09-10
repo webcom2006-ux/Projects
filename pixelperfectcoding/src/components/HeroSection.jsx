@@ -1,6 +1,7 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { heroSlides } from '../data/heroSlides'
 
 function HeroSection() {

@@ -1,11 +1,3 @@
-import hireInterview from '../assets/interview.jpg'
-import CodeAudit from '../assets/code-audit.jpg' 
-import accessibility from '../assets/accessibility.jpg'
-import cvw from '../assets/cwv.jpg'
-import designSystem from '../assets/design-system.jpg' 
-import uiTeam from '../assets/ux-design.avif'
-import ecommerceVisual from '../assets/ecom.avif'
-
 export const heroSlides = [
     {
     heading: 'Hire the Right Frontend Engineers — The First Time',
@@ -14,7 +6,7 @@ export const heroSlides = [
     highlights: ['Live Coding & Architecture Interviews', 'Detailed Candidate Evaluation Report', 'Hiring Recommendation You Can Trust'],
     ctaText: 'Schedule an Interview Assessment',
     ctaHref: '/contact',
-    image: hireInterview,
+    image: '/assets/interview.jpg',
     imageAlt: 'Interview Assessment',
   },
   {
@@ -24,7 +16,7 @@ export const heroSlides = [
     highlights: ['Architecture & Code Quality Review', 'Technical Debt Assessment', 'Actionable Improvement Roadmap'],
     ctaText: 'Request a Code Audit',
     ctaHref: '/contact',
-    image: CodeAudit,
+    image: '/assets/code-audit.jpg',
     imageAlt: 'Request a Code Audit ',
   },
   {
@@ -34,7 +26,7 @@ export const heroSlides = [
     highlights: ['Performance-First Delivery', 'Modern React & TypeScript Execution', 'Clear Communication Across Product and Engineering'],
     ctaText: 'Book a Free Consultation',
     ctaHref: '#portfolio',
-    image: uiTeam,
+    image: '/assets/ux-design.avif',
     imageAlt: 'Frontend Team',
   },
   {
@@ -44,7 +36,7 @@ export const heroSlides = [
     highlights: ['WCAG 2.2 Compliance', 'Keyboard Navigation & Focus Management', 'Accessibility Audit Report'],
     ctaText: 'Improve Accessibility',
     ctaHref: '/contact',
-    image: accessibility,
+    image: '/assets/accessibility.jpg',
     imageAlt: 'Accessibility',
   },
   {
@@ -54,7 +46,7 @@ export const heroSlides = [
     highlights: ['Faster Loading Experience', 'Higher Lighthouse Scores', 'Better User Engagement'],
     ctaText: 'Optimize Performance',
     ctaHref: '/contact',
-    image: cvw,
+    image: '/assets/cwv.jpg',
     imageAlt: 'Optimize Performance',
   },
   {
@@ -64,7 +56,7 @@ export const heroSlides = [
     highlights: ['Component Library', 'Design Tokens & Theming', 'Storybook & Documentation'],
     ctaText: 'Build a Design System →',
     ctaHref: '/contact',
-    image: designSystem,
+    image: '/assets/design-system.jpg',
     imageAlt: 'Build a Design System →',
   },
   {
@@ -74,7 +66,7 @@ export const heroSlides = [
     highlights: ['High-Performance Product Catalogs', 'Seamless Checkout Experiences', 'Fast & Scalable E-commerce Frontends'],
     ctaText: 'Turn Visitors Into Customers',
     ctaHref: '/contact',
-    image: ecommerceVisual,
+    image: '/assets/ecom.avif',
     imageAlt: 'E-commerce frontend experience',
   },
 ]

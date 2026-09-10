@@ -1,5 +1,5 @@
 import { FaCheckCircle, FaUserTie, FaLaptopCode, FaLifeRing, FaTachometerAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function AboutPage() {
   return (
@@ -9,14 +9,14 @@ function AboutPage() {
           <div className="md:flex-1">
             <h1 className="text-4xl sm:text-5xl font-bold">About Us</h1>
             <p className="mt-4 text-lg max-w-prose opacity-90">
-              At <strong>Pixel Perfect Coding</strong>, we're more than a web development company—we're your frontend
+              At <strong>Pixel Perfect Coding</strong>, we&apos;re more than a web development company—we&apos;re your frontend
               engineering partner. We help startups, digital agencies, and growing businesses build, improve, and maintain
               modern web applications that are fast, scalable, and built for long-term success.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex mbl-btn-100 items-center gap-2 bg-white text-violet-800 px-5 py-2 rounded-md font-semibold shadow hover:opacity-95">Get in touch</Link>
-              <Link to="/quotation" className="inline-flex mbl-btn-100 items-center gap-2 border border-white/30 px-5 py-2 rounded-md text-white hover:bg-white/5">Request a quote</Link>
+              <Link href="/contact" className="inline-flex mbl-btn-100 items-center gap-2 bg-white text-violet-800 px-5 py-2 rounded-md font-semibold shadow hover:opacity-95">Get in touch</Link>
+              <Link href="/quotation" className="inline-flex mbl-btn-100 items-center gap-2 border border-white/30 px-5 py-2 rounded-md text-white hover:bg-white/5">Request a quote</Link>
             </div>
           </div>
 
@@ -47,7 +47,7 @@ function AboutPage() {
       <section className="grid md:grid-cols-2 gap-8 mb-10">
         <article>
           <h2 className="text-4xl font-semibold mb-3 text-violet-400">Who We Are?</h2>
-          <p className="text-gray-400 mb-4 text-base">We work alongside your team to deliver reliable solutions that create real business value. Whether you're launching a new product, scaling an existing platform, or modernizing a legacy application, we bring practical engineering leadership to help you move faster.</p>
+          <p className="text-gray-400 mb-4 text-base">We work alongside your team to deliver reliable solutions that create real business value. Whether you&apos;re launching a new product, scaling an existing platform, or modernizing a legacy application, we bring practical engineering leadership to help you move faster.</p>
 
           <h3 className="text-2xl font-medium mb-2 text-violet-400">Our Niche Expertise</h3>
           <div className="space-y-4">
@@ -119,17 +119,17 @@ function AboutPage() {
       </section>
 
       <section className="text-center py-8">
-        <h2 className="text-3xl font-semibold mb-3 text-violet-400">Let's Build Better Frontend Experiences</h2>
+        <h2 className="text-3xl font-semibold mb-3 text-violet-400">Let&apos;s Build Better Frontend Experiences</h2>
         <p className="text-gray-400 max-w-2xl mx-auto mb-6">Whether you need expert consulting, ongoing engineering support, independent frontend interview evaluations, or a trusted partner to improve your digital products, Pixel Perfect Coding is here to help.</p>
           <div className="flex justify-center gap-4 cstm-flx">
           <Link
-            to="/contact"
+            href="/contact"
             className="bg-violet-600 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-violet-700 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
           >
             Start a conversation
           </Link>
           <Link
-            to="/quotation"
+            href="/quotation"
             className="border border-violet-600 text-violet-400 px-6 py-3 rounded-md font-semibold hover:bg-violet-950 hover:text-violet-300 dark:hover:bg-slate-700 dark:hover:text-violet-300 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
           >
             Request a proposal

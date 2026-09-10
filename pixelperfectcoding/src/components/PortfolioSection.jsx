@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function PortfolioSection({ projects }) {
   return (
@@ -6,9 +6,7 @@ function PortfolioSection({ projects }) {
       <h2 className="section-heading">Portfolio</h2>
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => {
-          const imageSrc = project.image
-            ? new URL(`../assets/${project.image}`, import.meta.url).href
-            : undefined
+          const imageSrc = project.image ? `/assets/${project.image}` : undefined
 
           return (
             <article
@@ -28,7 +26,7 @@ function PortfolioSection({ projects }) {
                 <h3 className="mt-2 text-2xl text-purple-500 font-semibold">{project.name}</h3>
                 <p className="text-lg mt-3">{project.desc}</p>
                 <div className="mt-4">
-                  <Link to="/quotation" className="text-sm text-accent hover:underline">
+                  <Link href="/quotation" className="text-sm text-accent hover:underline">
                     Get a quote for this project
                   </Link>
                 </div>
